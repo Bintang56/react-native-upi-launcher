@@ -325,7 +325,7 @@ Please read our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing.
 
 ## 📄 License
 
-MIT © [Your Name]
+MIT © Vivek Negi
 
 See [LICENSE](LICENSE) file for details.
 
@@ -337,14 +337,14 @@ See [LICENSE](LICENSE) file for details.
 ## 🔗 Links
 
 - **NPM Package:** [npmjs.com/package/react-native-upi-launcher](https://www.npmjs.com/package/react-native-upi-launcher)
-- **GitHub:** [github.com/yourusername/react-native-upi-launcher](https://github.com/yourusername/react-native-upi-launcher)
-- **Issues:** [github.com/yourusername/react-native-upi-launcher/issues](https://github.com/yourusername/react-native-upi-launcher/issues)
+- **GitHub:** [github.com/vivnegi21/react-native-upi-launcher](https://github.com/vivnegi21/react-native-upi-launcher)
+- **Issues:** [github.com/vivnegi21/react-native-upi-launcher/issues](https://github.com/vivnegi21/react-native-upi-launcher/issues)
 - **Changelog:** [CHANGELOG.md](CHANGELOG.md)
 
 ## 📈 Stats
 
-![GitHub stars](https://img.shields.io/github/stars/yourusername/react-native-upi-launcher?style=social)
-![GitHub forks](https://img.shields.io/github/forks/yourusername/react-native-upi-launcher?style=social)
+![GitHub stars](https://img.shields.io/github/stars/vivnegi21/react-native-upi-launcher?style=social)
+![GitHub forks](https://img.shields.io/github/forks/vivnegi21/react-native-upi-launcher?style=social)
 
 ---
 
